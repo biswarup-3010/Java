@@ -107,7 +107,8 @@ class SortArray{
         // SortAlgo.BubbleSort(arr,n) ;
         // SortAlgo.SelectionSort(arr,n) ;
         // SortAlgo.InsertionSort(arr,n) ;
-        SortAlgo.QuickSort(arr,0,n-1); 
+        // SortAlgo.QuickSort(arr,0,n-1); 
+        SortAlgo.MergeSort(arr,0,n-1); 
         SortAlgo.Display(arr);
     }
 }
