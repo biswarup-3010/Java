@@ -1,27 +1,23 @@
-import java.util.*;
+import java.util.Scanner;
+import java.util.Vector;
 class BinarySearch{
-    static int Binary_Search(int arr[],int start,int end,int data){
-        if(start<=end){
-            int mid = (start+end)/2;
-            if(arr[mid]==data) {
-                return mid;
-            }
-            else if(arr[mid]>data){
-                return Binary_Search(arr,mid+1,end,data);
-            }
-            else {
-                return Binary_Search(arr,start,mid-1,data);
-            }
+    private static int BS(Vector<Integer> arr,int low,int high,int target){
+        if(low<high){
+            int mid = (low+high)/2;
+            if(arr.get(mid)==target) return mid;
+            else if(arr.get(mid) > target) return BS(arr,low,mid-1,target);
+            return BS(arr,mid+1,high,target);
         }
         return -1;
     }
-    public static void main(String [] args){
+    public static void main(String a[]){
         Scanner sc = new Scanner(System.in);
-        int arr[]={1,2,3,4,5,6,7},n=7;
-        System.out.print("Enter the element you want to search :  ");
-        int data = sc.nextInt();
-        int pos = Binary_Search(arr,0,n-1,data);
-        if(pos!=-1)System.out.println("Using Linear search position in the array : "+pos);
-        else System.out.println("Not present in the array! ");
+        Vector<Integer> arr = new Vector<>();
+        for (int i = 1; i <= 10; i++) {
+            arr.add(i);
+        }
+        System.out.print("Enter value for searching : ");
+        int n = sc.nextInt();
+        System.out.println("Position : "+BS(arr,0,10,n));
     }
 }
